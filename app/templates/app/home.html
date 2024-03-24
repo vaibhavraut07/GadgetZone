@@ -1,0 +1,313 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+{% block title %}Home{% endblock title %} 
+{% block banner_slider %}
+<!--Banner Slider-->
+<section class="home">
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="{% static 'app/images/banner/Banner1.jpg' %}"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="{% static 'app/images/banner/Banner2.jpg' %}"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="{% static 'app/images/banner/Banner3.jpg' %}"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="{% static 'app/images/banner/Banner4.jpg' %}"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+      <div class="slider-icon-prev">
+        <i class="far fa-chevron-left"></i>
+        <span class="visually-hidden">Previous</span>
+      </div>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+      <div class="slider-icon-next">
+        <i class="far fa-chevron-right"></i>
+        <span class="visually-hidden">Next</span>
+      </div>
+    </button>
+  </div>
+</section>
+<!-- End Banner Slider -->
+{% endblock banner_slider %} 
+
+
+{% block main-content %}
+
+<!-- 1st Product Slider -->
+{% comment %} <section class="trending-product-wrapper">
+  <div class="container">
+    <h3 class="text-left">Mobiles</h3>
+    <hr />
+    <!-- Slider 2 -->
+    <div class="owl-carousel" id="slider1">
+      {% for m in mobiles %}
+      <div class="item p-2">
+        <a href="{% url 'product-detail' m.id %}">
+          <div class="mb-2">
+            <img
+              src="{{m.product_image.url}}"
+              class="img-fluid h-100 w-auto"
+              alt=""
+            />
+          </div>
+        </a>
+        <div class="text-left trend-content">
+          <h5 style="font-size: 18px;    font-weight: 400;">{{m.title}}</h5>
+          <p class="mb-1">Offer price : ₹ {{m.discounted_price}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section> {% endcomment %}
+<!-- End 1st Product Slider -->
+
+<!-- 2nd Product Slider -->
+{% comment %} <section class="trending-product-wrapper">
+  <div class="container">
+    <h3 class="text-left">Trending Products</h3>
+    <hr />
+    <!-- Slider 2 -->
+    <div class="owl-carousel" id="slider2">
+      {% for tp in topwears %}
+      <div class="item p-2">
+        <a href="{% url 'product-detail' tp.id %}">
+          <div class="mb-2">
+            <img
+              src="{{tp.product_image.url}}"
+              class="img-fluid h-100 w-auto"
+              alt=""
+            />
+          </div>
+        </a>
+        <div class="text-left trend-content">
+          <h5 style="font-size: 18px;    font-weight: 400;">{{tp.title}}</h5>
+          <p class="mb-1">Offer price : ₹ {{tp.discounted_price}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section> {% endcomment %}
+<!-- End 2nd Product Slider -->
+
+<!-- 3rd Product Slider -->
+{% comment %} <section class="trending-product-wrapper">
+  <div class="container">
+    <h3 class="text-left">Bottom Wears</h3>
+    <hr />
+    <!-- Slider 2 -->
+    <div class="owl-carousel" id="slider2">
+      {% for bw in bottomwears %}
+      <div class="item p-2">
+        <a href="{% url 'product-detail' bw.id %}">
+          <div class="mb-2">
+            <img
+              src="{{bw.product_image.url}}"
+              class="img-fluid h-100 w-auto"
+              alt=""
+            />
+          </div>
+        </a>
+        <div class="text-left trend-content">
+          <h5 style="font-size: 18px;    font-weight: 400;">{{bw.title}}</h5>
+          <p class="mb-1">Offer price : ₹ {{bw.discounted_price}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section> {% endcomment %}
+<!-- 3rd Product Slider -->
+
+<!-- 3rd Product Slider -->
+{% comment %} <section class="trending-product-wrapper">
+  <div class="container">
+    <h3 class="text-left">Bottom Wears</h3>
+    <hr />
+    <!-- Slider 2 -->
+    <div class="owl-carousel" id="slider2">
+      {% for bw in bottomwears %}
+      <div class="item p-2">
+        <a href="{% url 'product-detail' bw.id %}">
+          <div class="mb-2">
+            <img
+              src="{{bw.product_image.url}}"
+              class="img-fluid h-100 w-auto"
+              alt=""
+            />
+          </div>
+        </a>
+        <div class="text-left trend-content">
+          <h5 style="font-size: 18px;    font-weight: 400;">{{bw.title}}</h5>
+          <p class="mb-1">Offer price : ₹ {{bw.discounted_price}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section> {% endcomment %}
+<!-- 3rd Product Slider -->
+
+
+<!-- Mobiles -->
+<div class="container my-4 my-lg-5 mx-auto">
+  <h1 class="text-center mb-4 mb-lg-5">Mobiles</h1>
+  <div class="row align-items-start justify-content-sm-start">
+    {% for m in mobiles %}
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6  my-2 my-md-4">
+      <a href="{% url 'product-detail' m.id %}">
+        <div class="mb-2">
+          <img
+            src="{{m.product_image.url}}"
+            class="img-fluid h-100 w-auto"
+            alt=""
+          />
+        </div>
+      </a>
+      <div class="text-left trend-content">
+        <h5 style="font-size: 18px;    font-weight: 400;">{{m.title}}</h5>
+        <p class="mb-1 offer-price">Offer price : ₹ {{m.discounted_price}}</p>
+      </div>
+    </div>          
+    {% endfor %}
+  </div>
+</div>
+<!-- Laptops -->
+<div class="container my-4 my-lg-5 mx-auto">
+  <h1 class="text-center mb-4 mb-lg-5">Laptops</h1>
+  <div class="row align-items-start justify-content-sm-start">
+    {% for l in laptops %}
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6  my-2 my-md-4">
+      <a href="{% url 'product-detail' l.id %}">
+        <div class="mb-2">
+          <img
+            src="{{l.product_image.url}}"
+            class="img-fluid h-100 w-auto"
+            alt=""
+          />
+        </div>
+      </a>
+      <div class="text-left trend-content">
+        <h5 style="font-size: 18px;    font-weight: 400;">{{l.title}}</h5>
+        <p class="mb-1 offer-price">Offer price : ₹ {{l.discounted_price}}</p>
+      </div>
+    </div>          
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Watches -->
+<div class="container my-4 my-lg-5 mx-auto">
+  <h1 class="text-center mb-4 mb-lg-5">Watches</h1>
+  <div class="row align-items-start justify-content-sm-start">
+    {% for w in watches %}
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6  my-2 my-md-4">
+      <a href="{% url 'product-detail' w.id %}">
+        <div class="mb-2">
+          <img
+            src="{{w.product_image.url}}"
+            class="img-fluid h-100 w-auto"
+            alt=""
+          />
+        </div>
+      </a>
+      <div class="text-left trend-content">
+        <h5 style="font-size: 18px;    font-weight: 400;">{{w.title}}</h5>
+        <p class="mb-1 offer-price">Offer price : ₹ {{w.discounted_price}}</p>
+      </div>
+    </div>          
+    {% endfor %}
+  </div>
+</div>
+
+<!-- cameras -->
+<div class="container my-4 my-lg-5 mx-auto">
+  <h1 class="text-center mb-4 mb-lg-5">Camera's</h1>
+  <div class="row align-items-start justify-content-sm-start">
+    {% for c in cameras %}
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6  my-2 my-md-4">
+      <a href="{% url 'product-detail' c.id %}">
+        <div class="mb-2">
+          <img
+            src="{{c.product_image.url}}"
+            class="img-fluid h-100 w-auto"
+            alt=""
+          />
+        </div>
+      </a>
+      <div class="text-left trend-content">
+        <h5 style="font-size: 18px;    font-weight: 400;">{{c.title}}</h5>
+        <p class="mb-1 offer-price">Offer price : ₹ {{c.discounted_price}}</p>
+      </div>
+    </div>          
+    {% endfor %}
+  </div>
+</div>
+{% endblock main-content %}

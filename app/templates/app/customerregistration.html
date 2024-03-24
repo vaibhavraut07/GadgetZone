@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<section id="signup" class="mt-4">
+  <div class="container">
+      <div class="row" style="background-color: #f3f0f036;box-shadow: 0px 8px 17px rgb(0 0 0 / 19%);border-radius:50px;">
+          <div class=" col-md-6 d-none d-md-block">
+              <img src="{% static 'app/images/signup.svg' %}" class="img-fluid" style="border-radius:50px">
+          </div>
+          <div class="col-12 col-md-6 d-flex justify-content-center flex-column py-5 py-md-3 py-xl-0">
+          <h2>SIGN UP</h2>
+          <p class="font-18 text-primary">Looks like you're new here!</p>
+          <form action="" method="post" novalidate class="">
+            {% if messages %}
+            {% for message in messages %}
+             <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}}</p>
+            {% endfor %}
+            {% endif %}
+             {% csrf_token %}
+             {% for fm in form %}
+              <div class="form-group mb-3">
+              {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+              </div>
+             {% endfor %}
+             <input type="submit" value="Submit" class="btn btn-primary">
+             <br>
+             <div class="pt-4 text-primary fw-bold"><small>Existing User ? <a href="{% url 'login' %}" class="text-danger">Login Now</a> </small></div>
+             {% if form.non_field_errors %}
+              {% for error in form.non_field_errors %}
+               <p class="alert alert-danger my-3">{{error}}</p>
+              {% endfor %}
+             {% endif %}
+          </form>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock main-content %}

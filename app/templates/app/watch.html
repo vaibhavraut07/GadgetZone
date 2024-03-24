@@ -1,0 +1,55 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}watch{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="list-group shadow rounded-3 border-0 p-3">
+     <a href="{% url 'watch' %}" class="list-group-item list-group-item-action" aria-current="true">All watch</a>
+     <a href="{% url 'watchdata' 'Apple'  %}" class="list-group-item list-group-item-action" aria-current="true">Apple</a>
+     <a href="{% url 'watchdata' 'Sony'  %}" class="list-group-item list-group-item-action">Sony</a>
+     <a href="{% url 'watchdata' 'below'  %}" class="list-group-item list-group-item-action">Below 10000</a>
+     <a href="{% url 'watchdata' 'above'  %}" class="list-group-item list-group-item-action">Above 10000</a>
+   </div>
+  </div>
+  <div class="col-sm-8">
+   <div class="row">
+    {% comment %} {% for product in watches %}
+     <div class="col-lg-3 col-md-4 col-sm-6 col-6  my-2 my-md-4">
+      <a href="{% url 'product-detail' product.id %}" class="btn">
+       <div class="item">
+        <img src="{{product.product_image.url}}" alt="" height="300" class="">
+        <div class="fw-bold">{{product.title}}</div>
+        <div class="fw-bold">Rs. {{product.discounted_price}} <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>
+       </div>
+      </a>
+     </div>
+    {% endfor %} {% endcomment %}
+    <div class="container my-4 my-lg-5 mx-auto">
+      <h1 class="text-center mb-4 mb-lg-5">Watches</h1>
+      <div class="row align-items-start justify-content-sm-start">
+        {% for w in watches %}
+        <div class="col-md-4 col-sm-6 col-6  my-2 my-md-4">
+          <a href="{% url 'product-detail' w.id %}">
+            <div class="mb-2">
+              <img
+                src="{{w.product_image.url}}"
+                class="img-fluid h-100 w-auto"
+                alt=""
+              />
+            </div>
+          </a>
+          <div class="text-left trend-content">
+            <h5 style="font-size: 18px;    font-weight: 400;">{{w.title}}</h5>
+            <p class="mb-1 offer-price">Offer price : ₹ {{w.discounted_price}}</p>
+          </div>
+        </div>          
+        {% endfor %}
+      </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

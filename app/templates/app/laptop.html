@@ -1,0 +1,55 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}laptop{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="list-group shadow rounded-3 border-0 p-3">
+     <a href="{% url 'laptop' %}" class="list-group-item list-group-item-action" aria-current="true">All laptop</a>
+     <a href="{% url 'laptopdata' 'Asus'  %}" class="list-group-item list-group-item-action" aria-current="true">Asus</a>
+     <a href="{% url 'laptopdata' 'Xiami'  %}" class="list-group-item list-group-item-action">Xiami</a>
+     <a href="{% url 'laptopdata' 'below'  %}" class="list-group-item list-group-item-action">Below 50000</a>
+     <a href="{% url 'laptopdata' 'above'  %}" class="list-group-item list-group-item-action">Above 50000</a>
+   </div>
+  </div>
+  <div class="col-sm-8">
+   <div class="row">
+    {% comment %} {% for product in laptops %}
+     <div class="col-sm-4 text-center mb-4">
+      <a href="{% url 'product-detail' product.id %}" class="btn">
+       <div class="item">
+        <img src="{{product.product_image.url}}" alt="" height="300" class="">
+        <div class="fw-bold">{{product.title}}</div>
+        <div class="fw-bold">Rs. {{product.discounted_price}} <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>
+       </div>
+      </a>
+     </div>
+    {% endfor %} {% endcomment %}
+    <div class="container my-4 my-lg-5 mx-auto">
+      <h1 class="text-center mb-4 mb-lg-5">Laptops</h1>
+      <div class="row align-items-start justify-content-sm-start">
+        {% for l in laptops %}
+        <div class="col-md-4 col-sm-6 col-6  my-2 my-md-4">
+          <a href="{% url 'product-detail' l.id %}">
+            <div class="mb-2">
+              <img
+                src="{{l.product_image.url}}"
+                class="img-fluid h-100 w-auto"
+                alt=""
+              />
+            </div>
+          </a>
+          <div class="text-left trend-content">
+            <h5 style="font-size: 18px;    font-weight: 400;">{{l.title}}</h5>
+            <p class="mb-1 offer-price">Offer price : ₹ {{l.discounted_price}}</p>
+          </div>
+        </div>          
+        {% endfor %}
+      </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
